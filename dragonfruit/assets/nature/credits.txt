@@ -1,0 +1,28 @@
+Nature photography for the component tour
+
+Tidewater (dock.webp)
+  Paul Jarvis — https://unsplash.com/photos/gkT4FfgHO5o
+
+Fjord (menu.webp)
+  Alexey Topolyanskiy — https://unsplash.com/photos/-oWyJoSqBRM
+
+Aurora (drawer.webp)
+  Vashishtha Jogi — https://unsplash.com/photos/bClr95glx6k
+
+Red canyon (settings.webp)
+  Philippe Wuyts — https://unsplash.com/photos/_h7aBovKia4
+
+Cascade (files.webp)
+  Andrew Coelho — https://unsplash.com/photos/VB-w_3dnyvI
+
+Summit (controls.webp)
+  Go Wild — https://unsplash.com/photos/V0yAek6BgGk
+
+Woodland (context.webp)
+  Jerry Adney — https://unsplash.com/photos/_WiFMBRT7Aw
+
+Cloud forest (stack.webp)
+  Frances Gunn — https://unsplash.com/photos/8BmNurlVR6M
+
+Photographs sourced via Lorem Picsum from Unsplash. Resized and encoded as WebP.
+https://unsplash.com/license

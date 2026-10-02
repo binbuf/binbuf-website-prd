@@ -1,0 +1,39 @@
+Dragonfruit Desktop web tour
+
+Dragonfruit provides the system menu glyphs and its three built-in wallpapers.
+Default.jpg is the original shipping image. The gallery and settings tiles use
+optimized derivatives of Default, Lagoon and Midnight.
+Source: https://github.com/binbuf/dragonfruit
+License: ./licenses/Dragonfruit.txt (MIT)
+
+The interface uses a Latin subset of the Inter variable font.
+Copyright 2016 The Inter Project Authors.
+Source: https://github.com/rsms/inter
+License: ./licenses/OFL-1.1.txt
+
+Interface line icons and the Settings gear are adapted from Tabler Icons.
+Source: https://github.com/tabler/tabler-icons
+License: ./licenses/Tabler.txt (MIT)
+
+The binbuf mark identifies the publisher. The GitHub mark identifies links
+to GitHub. Files, Applications, Trash and folder icons are editable WhiteSur
+SVG assets as shipped by Dragonfruit. Their corresponding sources, license
+and attribution accompany them in ./shell/ and ./native/. The Settings tile
+uses the project's bundled Tabler-based artwork. Web, Calendar, Gallery
+and Terminal are sample third-party app representations in this browser tour.
+
+Nature photography
+./nature/credits.txt lists each chapter photograph, photographer, original
+source and license. The images are locally bundled WebP files.
+
+Highland is original artwork generated for the web tour using the
+built-in image generation tool. The image brief called for an immersive
+wide landscape of overlapping Icelandic volcanic ridges, citron light
+grazing velvety green moss, charcoal teal shadows and distant sage mist.
+It is a showcase wallpaper for the browser preview.
+
+Generation prompt
+Use case: photorealistic-natural. Asset type: an original premium operating-system landscape wallpaper, wide 16:9. Create an immersive fine-art landscape photograph of overlapping Icelandic emerald volcanic ridges. Big plunging diagonal velvety moss-covered hills, razor lines of late-afternoon citron sunlight grazing the crest of a large triangular ridge in the right-middle, finely detailed vertical fluting and charcoal teal shadows. Layers of remote dark green ridges turn silvery sage in the atmospheric distance under a thin band of pale mint hazy sky. Dramatic depth and sculptural composition, rich emerald and jade, softly grainy film photography with crisp natural surface detail. Fill the frame with landscape, no trees, no houses, no people, no lettering, graphics, interface or mockup. 2048x1152 landscape.
+
+Distribution artwork
+See ./distros/credits.txt for distribution logo sources and the collection license.

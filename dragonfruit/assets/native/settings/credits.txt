@@ -1,0 +1,3 @@
+Category symbols are unchanged Phosphor Icons, from the Dragonfruit desktop’s bundled assets/icons/phosphor collection.
+Upstream: https://github.com/phosphor-icons/core
+License: MIT. See LICENSE.txt.

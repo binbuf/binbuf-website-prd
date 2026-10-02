@@ -1,0 +1,6 @@
+The colored place icons in this directory are unchanged, separable SVG source assets from the WhiteSur icon theme, licensed under GPL-3.0-only. A copy of its license accompanies these files in WhiteSur-COPYING.txt.
+Upstream: https://github.com/vinceliuice/WhiteSur-icon-theme
+Revision: 73d8040da51a9ed74e47c7366e7e9ff437601a5c
+Folder, Home, Desktop, and Trash artwork: alternative/places/scalable
+Computer artwork: alternative/devices/scalable
+The Tux menu glyph is the Dragonfruit project's asset from assets/icons/brand/tux.svg. It is distributed with the project MIT license in ../licenses/Dragonfruit.txt.

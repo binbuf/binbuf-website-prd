@@ -1,0 +1,20 @@
+Distribution artwork
+
+Arch Linux, Debian, Fedora and Ubuntu identify the distributions targeted by Dragonfruit.
+The distribution names and marks belong to their respective projects.
+
+Dashboard Icons collection: https://github.com/homarr-labs/dashboard-icons
+Collection license: ./dashboard-icons-license.txt (Apache-2.0)
+Fedora brand guidance: https://docs.fedoraproject.org/en-US/project/brand/
+
+arch-linux.svg
+https://raw.githubusercontent.com/homarr-labs/dashboard-icons/23fc02e7710a66e0c774989f6e78372e9b6c2e15/svg/arch-linux.svg
+
+debian-linux.svg
+https://raw.githubusercontent.com/homarr-labs/dashboard-icons/23fc02e7710a66e0c774989f6e78372e9b6c2e15/svg/debian-linux.svg
+
+fedora.svg
+https://raw.githubusercontent.com/homarr-labs/dashboard-icons/23fc02e7710a66e0c774989f6e78372e9b6c2e15/svg/fedora-alt.svg
+
+ubuntu-linux.svg
+https://raw.githubusercontent.com/homarr-labs/dashboard-icons/23fc02e7710a66e0c774989f6e78372e9b6c2e15/svg/ubuntu-linux.svg
