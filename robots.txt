@@ -1,0 +1,5 @@
+# binbuf — allow all crawlers, point to the sitemap (canonical domain: binbuf.com).
+User-agent: *
+Allow: /
+
+Sitemap: https://binbuf.com/sitemap.xml

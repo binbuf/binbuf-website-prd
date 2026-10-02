@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en" data-base="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>QuickCal — a menu-bar calendar for macOS | binbuf</title><meta name="description" content="A tiny macOS menu-bar calendar that opens a month grid and your Apple Calendar agenda in one click. Free, open source, no Accessibility permission required."><meta name="author" content="binbuf"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="color-scheme" content="light dark"><link rel="canonical" href="https://binbuf.com/apps/quickcal.html"><meta property="og:type" content="website"><meta property="og:site_name" content="binbuf"><meta property="og:title" content="QuickCal — a menu-bar calendar for macOS"><meta property="og:description" content="One menu-bar click opens a month grid and today’s Apple Calendar agenda. Free, open source, no background agents."><meta property="og:url" content="https://binbuf.com/apps/quickcal.html"><meta property="og:image" content="https://binbuf.com/og/quickcal.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="QuickCal calendar flyout with month grid and agenda"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="QuickCal — a menu-bar calendar for macOS"><meta name="twitter:description" content="One menu-bar click opens a month grid and today’s Apple Calendar agenda. Free, open source, no background agents."><meta name="twitter:image" content="https://binbuf.com/og/quickcal.png"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><link rel="manifest" href="../site.webmanifest"><link rel="me" href="https://github.com/binbuf"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.5' y='1.5' width='13' height='13' rx='4' fill='%23e5484d'/%3E%3Crect x='17.5' y='1.5' width='13' height='13' rx='4' fill='%230b0d17'/%3E%3Crect x='1.5' y='17.5' width='13' height='13' rx='4' fill='%230b0d17' opacity='.55'/%3E%3Crect x='17.5' y='17.5' width='13' height='13' rx='4' fill='%230b0d17' opacity='.25'/%3E%3C/svg%3E"><!-- Theme before first paint: saved choice → OS preference → light --><script>
+(function () {
+  document.documentElement.classList.add('js');
+  try {
+    const saved = localStorage.getItem('binbuf-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+  } catch {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://api.github.com"><link rel="preload" as="image" href="https://binbuf.com/media/quickcal-800.avif" fetchpriority="high"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://binbuf.com/apps/quickcal.html#app","name":"QuickCal","url":"https://binbuf.com/apps/quickcal.html","isPartOf":{"@id":"https://binbuf.com/#website"},"publisher":{"@id":"https://binbuf.com/#person"},"codeRepository":"https://github.com/binbuf/QuickCal","downloadUrl":"https://github.com/binbuf/QuickCal/releases","applicationCategory":"ProductivityApplication","applicationSubCategory":"Calendar utility","operatingSystem":"macOS 26","softwareVersion":"0.2.2","programmingLanguage":"Swift","license":"https://opensource.org/license/mit","screenshot":"https://binbuf.com/media/quickcal-1120.jpg","description":"A menu-bar calendar for macOS that opens a month grid and your Apple Calendar agenda in one click, with an optional analog companion clock.","featureList":["Month grid with today highlighted and event dots","Agenda for today from Apple Calendar via EventKit","Month, year and decade zoom views","Calendar icon or analog companion clock modes","No Accessibility permission and no background agents"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://binbuf.com/"},{"@type":"ListItem","position":2,"name":"Apps","item":"https://binbuf.com/apps/"},{"@type":"ListItem","position":3,"name":"QuickCal"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does macOS say QuickCal is damaged?","acceptedAnswer":{"@type":"Answer","text":"QuickCal is not notarized by Apple yet, so Gatekeeper blocks the first launch of a downloaded copy. It is a quarantine flag, not a broken app. Run xattr -dr com.apple.quarantine /Applications/QuickCal.app once and it opens normally from then on."}},{"@type":"Question","name":"Which macOS versions are supported?","acceptedAnswer":{"@type":"Answer","text":"macOS 26 or later, on Apple silicon and Intel Macs."}},{"@type":"Question","name":"Is QuickCal free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is MIT licensed, and the source is public on GitHub."}},{"@type":"Question","name":"Does it need special permissions?","acceptedAnswer":{"@type":"Answer","text":"It asks for calendar access through the standard EventKit prompt so it can show your agenda. It does not need Accessibility permission and does not install background agents."}},{"@type":"Question","name":"Does QuickCal sync my calendars?","acceptedAnswer":{"@type":"Answer","text":"No. Your accounts already sync through Apple Calendar; QuickCal reads what Calendar shows through EventKit and never talks to a server of its own."}},{"@type":"Question","name":"What are the two modes?","acceptedAnswer":{"@type":"Answer","text":"Calendar icon mode leaves your system clock alone and adds a small calendar icon. Analog Companion mode expects the system clock style to be Analog and replaces the readout with QuickCal’s configurable digital clock."}},{"@type":"Question","name":"How do I uninstall it?","acceptedAnswer":{"@type":"Answer","text":"Right-click the menu-bar icon and choose Uninstall. It removes the login item and all stored preferences; a script-based uninstaller is also included in the repository."}}]}]}</script><script type="application/json" id="binbuf-apps">[{"name":"Archive Extractor","slug":"archive-extractor","accent":"app--archive","cat":"Files & Data","tag":"One-click archive extraction for Windows","keywords":"archive extractor zip 7z rar tar gz unzip windows","icon":"<rect x=\"3\" y=\"4\" width=\"18\" height=\"4.5\" rx=\"1.5\"/><path d=\"M4.5 8.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5\"/><path d=\"M10 12.5h4\"/>"},{"name":"Object Viewer","slug":"object-viewer","accent":"app--object","cat":"Files & Data","tag":"Decode JSON, JWT, YAML and more in your browser","keywords":"json jwt xml yaml msgpack cbor protobuf jwt decode viewer browser","icon":"<path d=\"M9.5 4.5C7.8 4.5 7.5 5.6 7.5 7v1.5c0 1.4-.8 2.3-2 2.7v1.6c1.2.4 2 1.3 2 2.7V17c0 1.4.3 2.5 2 2.5\"/><path d=\"M14.5 4.5c1.7 0 2 1.1 2 2.5v1.5c0 1.4.8 2.3 2 2.7v1.6c-1.2.4-2 1.3-2 2.7V17c0 1.4-.3 2.5-2 2.5\"/><circle cx=\"12\" cy=\"12\" r=\"1.25\" fill=\"currentColor\" stroke=\"none\"/>"},{"name":"Preview 3D","slug":"preview-3d","accent":"app--preview3d","cat":"3D & Audio","tag":"Native 3D model viewer for Windows","keywords":"3d model viewer gltf glb obj fbx stl ply 3mf usd usdz step windows preview","icon":"<path d=\"M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z\"/><path d=\"M12 12v9M4.5 7.2 12 12l7.5-4.8\"/>"},{"name":"Gen VST","slug":"gen-vst","accent":"app--genvst","cat":"3D & Audio","tag":"Sega Genesis synth plugin for your DAW","keywords":"sega genesis ym2612 sn76489 fm synth plugin vst3 au clap dac audio music","icon":"<path d=\"M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4\"/>"},{"name":"markframe","slug":"markframe","accent":"app--markframe","cat":"Developer tools","tag":"Prototype mobile UIs from plain text","keywords":"mobile ui prototype dsl ios android material mockup markframe","icon":"<rect x=\"7\" y=\"2.5\" width=\"10\" height=\"19\" rx=\"2.5\"/><path d=\"M10.5 5.5h3\"/><path d=\"M11 18.5h2\"/>"},{"name":"symphony","slug":"symphony","accent":"app--symphony","cat":"Developer tools","tag":"Run an AI coding agent through your roadmap","keywords":"ai agent claude codex cursor opencode gemini roadmap automation git","icon":"<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"15\" rx=\"3\"/><path d=\"m7 10 2.4 2L7 14\"/><path d=\"M12.5 15H17\"/>"},{"name":"QuickCal","slug":"quickcal","accent":"app--quickcal","cat":"Productivity","tag":"Menu-bar calendar and clock for macOS","keywords":"calendar macos menu bar clock agenda eventkit quickcal","icon":"<rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"3\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/><circle cx=\"12\" cy=\"15\" r=\"1.6\"/>"}]</script><link rel="stylesheet" href="/_astro/Arrow.BkZ2X4a1.css"></head><body class="app--quickcal"><a class="skip-link" href="#main">Skip to content</a><header class="site-header" id="top" data-header><div class="container site-header__inner"><a class="brand" href="../" aria-label="binbuf — home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="var(--accent)"></rect><rect x="17.5" y="1.5" width="13" height="13" rx="4" fill="currentColor" opacity=".9"></rect><rect x="1.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".55"></rect><rect x="17.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".25"></rect></svg><span>binbuf</span></a><nav class="site-nav" id="site-nav" aria-label="Primary"><div class="nav-item--mega" data-mega><a class="nav-link" href="./" aria-haspopup="true" aria-expanded="false" data-mega-trigger>Apps<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="mega" role="group" aria-label="Apps by category"><div class="mega__grid"><div><p class="mega__title">Files &amp; Data</p><a class="mega__link app--archive" href="archive-extractor.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4.5" rx="1.5"/><path d="M4.5 8.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5"/><path d="M10 12.5h4"/></svg></span><span><strong>Archive Extractor</strong><span>One-click extraction for Windows</span></span></a><a class="mega__link app--object" href="object-viewer.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5C7.8 4.5 7.5 5.6 7.5 7v1.5c0 1.4-.8 2.3-2 2.7v1.6c1.2.4 2 1.3 2 2.7V17c0 1.4.3 2.5 2 2.5"/><path d="M14.5 4.5c1.7 0 2 1.1 2 2.5v1.5c0 1.4.8 2.3 2 2.7v1.6c-1.2.4-2 1.3-2 2.7V17c0 1.4-.3 2.5-2 2.5"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/></svg></span><span><strong>Object Viewer</strong><span>Decode JSON, JWT, YAML and more</span></span></a></div><div><p class="mega__title">3D &amp; Audio</p><a class="mega__link app--preview3d" href="preview-3d.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="M12 12v9M4.5 7.2 12 12l7.5-4.8"/></svg></span><span><strong>Preview 3D</strong><span>Native 3D model viewer</span></span></a><a class="mega__link app--genvst" href="gen-vst.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span><span><strong>Gen VST</strong><span>Sega Genesis synth plugin</span></span></a></div><div><p class="mega__title">Developer tools</p><a class="mega__link app--markframe" href="markframe.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/><path d="M11 18.5h2"/></svg></span><span><strong>markframe</strong><span>Mobile UI from plain text</span></span></a><a class="mega__link app--symphony" href="symphony.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="m7 10 2.4 2L7 14"/><path d="M12.5 15H17"/></svg></span><span><strong>symphony</strong><span>Agent runs, unattended</span></span></a></div><div><p class="mega__title">Productivity</p><a class="mega__link app--quickcal" href="quickcal.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1.6"/></svg></span><span><strong>QuickCal</strong><span>Menu-bar calendar for macOS</span></span></a></div></div><div class="mega__foot"><a class="btn btn--link" href="./">All apps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></div></div><a href="../#why">Principles</a><a href="../#faq">FAQ</a><a href="https://github.com/binbuf" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg></a></nav><div class="site-header__actions"><button class="palette-trigger" type="button" data-palette-open aria-haspopup="dialog" aria-controls="palette" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="palette-trigger__label">Search</span><kbd data-kbd aria-hidden="true">Ctrl K</kbd></button><button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Toggle light/dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></button><button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button></div></div></header><section class="app-hero app-hero--stacked" aria-labelledby="app-title">
+    <div class="container">
+      <div class="app-hero__copy">
+          <div class="app-hero__head">
+            <span class="app-icon app-icon--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1.6"/></svg></span>
+            <div>
+              <h1 id="app-title">QuickCal</h1>
+            </div>
+          </div>
+
+          <p class="app-hero__sub">A simple calendar for your macOS menu bar.</p>
+
+          <p class="app-hero__cat">Productivity · macOS</p>
+
+          <div class="app-hero__actions">
+            <a class="btn btn--primary btn--lg" href="https://github.com/binbuf/QuickCal/releases">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+              Download for macOS
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://github.com/binbuf/QuickCal" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              Source on GitHub
+            </a>
+          </div>
+
+          <div class="app-hero__meta">
+            <span class="chip chip--ver" data-release="binbuf/QuickCal" title="Latest release">v0.2.2</span>
+            <span class="chip">macOS 26+</span>
+            <span class="chip">Apple silicon & Intel</span>
+            <span class="chip">MIT</span>
+          </div>
+
+          <p class="app-hero__note">QuickCal is ad-hoc signed but not notarized yet, so macOS may call the first launch “damaged”. The repository documents the one-line fix, and notarization is on the roadmap.</p>
+        </div>
+    </div>
+  </section>
+
+  <br />
+  <!-- ============================== PRODUCT PREVIEW ============================== -->
+  <section class="app-stage" aria-label="QuickCal preview">
+    <div class="container">
+      <figure class="app-hero__media">
+          <picture>
+            <source type="image/avif" srcset="../media/quickcal-480.avif 480w, ../media/quickcal-800.avif 800w, ../media/quickcal-1120.avif 1120w" sizes="(max-width: 1240px) 100vw, 1200px">
+            <source type="image/webp" srcset="../media/quickcal-480.webp 480w, ../media/quickcal-800.webp 800w, ../media/quickcal-1120.webp 1120w" sizes="(max-width: 1240px) 100vw, 1200px">
+            <img class="app-hero__shot" src="../media/quickcal-1120.jpg"
+                 srcset="../media/quickcal-480.jpg 480w, ../media/quickcal-800.jpg 800w, ../media/quickcal-1120.jpg 1120w"
+                 sizes="(max-width: 1240px) 100vw, 1200px"
+                 alt="QuickCal calendar flyout showing a month grid with event dots and the agenda for today"
+                 width="1120" height="1192" fetchpriority="high" decoding="async">
+          </picture>
+          <figcaption class="app-hero__caption">The flyout: month grid with event dots, agenda for today underneath.</figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">What's inside</p>
+          <h2 class="h2" id="features-title">Your calendar, one click away.</h2>
+        </div>
+      </header>
+
+      <div class="card-grid card-grid--3">
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h7v7H4zM13 5.5h7v7h-7zM4 14.5h7v5H4zM13 14.5h7v5h-7z"/></svg></span>
+          <h3>Month grid with event dots</h3>
+          <p>Today is highlighted, busy days are visible at a glance, and the whole month fits in the flyout.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3.5 7.5 12 12l8.5-4.5z"/><path d="m3.5 12.5 8.5 4.5 8.5-4.5"/><path d="m3.5 16.5 8.5 4.5 8.5-4.5"/></svg></span>
+          <h3>Zoom out by clicking</h3>
+          <p>Click the month and year header to move from Month to Year to Decade and back again.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+          <h3>Agenda for today</h3>
+          <p>Your events, pulled from Apple Calendar through EventKit, listed under the grid. Click one to open it.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></span>
+          <h3>Two menu-bar modes</h3>
+          <p>Keep the system clock and add a calendar icon, or switch the system clock to Analog and let QuickCal supply the digital readout.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.6"/></svg></span>
+          <h3>A clock you configure</h3>
+          <p>12/24-hour, seconds, day of week, date and flashing separators — all optional.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 5 6v5.5c0 4 2.9 7.4 7 8.5 4.1-1.1 7-4.5 7-8.5V6z"/><path d="m9 12 2 2 4-4.5"/></svg></span>
+          <h3>No background agents</h3>
+          <p>No Accessibility permission, no helper processes. Uninstall from the menu and it removes its login item and preferences.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="start-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">Getting started</p>
+        </div>
+      </header>
+
+      <div class="steps">
+        <article class="card step reveal">
+          <span class="step__num">1</span>
+          <h3>Download the DMG</h3>
+          <p>Get the latest <code class="code-inline">QuickCal-&lt;version&gt;.dmg</code> from <a href="https://github.com/binbuf/QuickCal/releases" target="_blank" rel="noopener">Releases</a>, choosing the build for your Mac.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="step__num">2</span>
+          <h3>Drag it to Applications</h3>
+          <p>Open the DMG and drag QuickCal into your Applications folder, like any other Mac app.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="step__num">3</span>
+          <h3>Clear the first-launch warning</h3>
+          <p>If macOS says the app is damaged, run <code class="code-inline">xattr -dr com.apple.quarantine /Applications/QuickCal.app</code> once. Then open QuickCal and pick your mode.</p>
+        </article>
+      </div>
+      <div style="margin-top:1.5rem"><div class="terminal terminal--light" style="max-width:640px">
+      <div class="terminal__bar" aria-hidden="true"><span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__title">Terminal — first launch fix</span></div>
+      <button class="copy-btn" type="button" data-copy="quickcal-cmd">Copy</button>
+      <pre id="quickcal-cmd">xattr -dr com.apple.quarantine /Applications/QuickCal.app</pre>
+    </div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">QuickCal FAQ</p>
+        </div>
+      </header>
+
+      <div class="faq reveal">
+        <details class="faq__item">
+          <summary>
+            Why does macOS say QuickCal is damaged?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>QuickCal is not notarized by Apple yet, so Gatekeeper blocks the first launch of a downloaded copy. It is a quarantine flag, not a broken app. Run <code class="code-inline">xattr -dr com.apple.quarantine /Applications/QuickCal.app</code> once and it opens normally from then on.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Which macOS versions are supported?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>macOS 26 or later, on Apple silicon and Intel Macs.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Is QuickCal free?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>Yes. It is MIT licensed, and the source is public on GitHub.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Does it need special permissions?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>It asks for calendar access through the standard EventKit prompt so it can show your agenda. It does not need Accessibility permission and does not install background agents.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Does QuickCal sync my calendars?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>No. Your accounts already sync through Apple Calendar; QuickCal reads what Calendar shows through EventKit and never talks to a server of its own.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            What are the two modes?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>Calendar icon mode leaves your system clock alone and adds a small calendar icon. Analog Companion mode expects the system clock style to be Analog and replaces the readout with QuickCal’s configurable digital clock.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            How do I uninstall it?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>Right-click the menu-bar icon and choose Uninstall. It removes the login item and all stored preferences; a script-based uninstaller is also included in the repository.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="more-title"><div class="container"><header class="section-head reveal"><div><p class="eyebrow">Keep browsing</p><h2 class="h2" id="more-title">More from the collection.</h2></div><a class="cat-link" href="./">All apps →</a></header><div class="related"><article class="card card--hover app-card app--object reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5C7.8 4.5 7.5 5.6 7.5 7v1.5c0 1.4-.8 2.3-2 2.7v1.6c1.2.4 2 1.3 2 2.7V17c0 1.4.3 2.5 2 2.5"/><path d="M14.5 4.5c1.7 0 2 1.1 2 2.5v1.5c0 1.4.8 2.3 2 2.7v1.6c-1.2.4-2 1.3-2 2.7V17c0 1.4-.3 2.5-2 2.5"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/></svg></span><span class="chip">Web</span></div><h3><a class="app-card__link" href="object-viewer.html">Object Viewer</a></h3><p class="app-card__tagline">Decode JSON, JWT, YAML and more without uploading anything.</p><div class="app-card__links"><a class="btn btn--link" href="object-viewer.html">Learn more <span class="visually-hidden">about Object Viewer</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article><article class="card card--hover app-card app--preview3d reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="M12 12v9M4.5 7.2 12 12l7.5-4.8"/></svg></span><span class="chip">Windows</span></div><h3><a class="app-card__link" href="preview-3d.html">Preview 3D</a></h3><p class="app-card__tagline">Inspect 3D models natively — glTF, OBJ, FBX, STL and more.</p><div class="app-card__links"><a class="btn btn--link" href="preview-3d.html">Learn more <span class="visually-hidden">about Preview 3D</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article><article class="card card--hover app-card app--markframe reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/><path d="M11 18.5h2"/></svg></span><span class="chip">Web</span></div><h3><a class="app-card__link" href="markframe.html">markframe</a></h3><p class="app-card__tagline">Prototype mobile UIs from plain text, live in the browser.</p><div class="app-card__links"><a class="btn btn--link" href="markframe.html">Learn more <span class="visually-hidden">about markframe</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article></div></div></section>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="../" aria-label="binbuf — home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="var(--accent)"></rect><rect x="17.5" y="1.5" width="13" height="13" rx="4" fill="currentColor" opacity=".9"></rect><rect x="1.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".55"></rect><rect x="17.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".25"></rect></svg><span>binbuf</span></a><p>Free and open-source software for Windows, macOS, Linux, Android, iOS, web, and more. Made in California.</p><div class="footer-actions"><a class="icon-btn" href="https://github.com/binbuf" target="_blank" rel="noopener" aria-label="binbuf on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg></a></div></div><div><p class="footer-title">Files &amp; Data</p><ul class="footer-links"><li><a href="archive-extractor.html">Archive Extractor</a></li><li><a href="object-viewer.html">Object Viewer</a></li></ul></div><div><p class="footer-title">3D &amp; Audio</p><ul class="footer-links"><li><a href="preview-3d.html">Preview 3D</a></li><li><a href="gen-vst.html">Gen VST</a></li></ul></div><div><p class="footer-title">Developer tools</p><ul class="footer-links"><li><a href="markframe.html">markframe</a></li><li><a href="symphony.html">symphony</a></li></ul></div><div><p class="footer-title">Productivity</p><ul class="footer-links"><li><a href="quickcal.html">QuickCal</a></li></ul></div></div><div class="footer-bottom"><span>&copy; <span id="year">2026</span> binbuf</span><span><a href="../">Home</a> ·<a href="./">All apps</a> ·<a href="../#faq">FAQ</a> ·<a href="https://github.com/binbuf" target="_blank" rel="noopener">GitHub</a></span></div></div></footer><dialog class="palette" id="palette" aria-label="Search apps and pages"><div class="palette__search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" placeholder="Search apps and pages…" aria-label="Search" data-palette-input autocomplete="off" spellcheck="false"><kbd class="palette__esc">Esc</kbd></div><ul class="palette__list" data-palette-list></ul><p class="palette__empty" hidden>No matches. Try “3D”, “archive”, “synth” or “calendar”.</p><div class="palette__foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span></div></dialog><button class="icon-btn to-top" type="button" data-to-top aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></button><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.BTEjkhXq.js"></script></body></html>

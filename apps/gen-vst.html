@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en" data-base="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Gen VST — Sega Genesis YM2612 &amp; SN76489 synth plugin (VST3/AU/CLAP) | binbuf</title><meta name="description" content="A free VST3/AU/CLAP plugin emulating the Sega Genesis YM2612 FM chip, SN76489 PSG and 8-bit DAC, with hardware filters, preset browser and 201 unit tests."><meta name="author" content="binbuf"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"><meta name="color-scheme" content="light dark"><link rel="canonical" href="https://binbuf.com/apps/gen-vst.html"><meta property="og:type" content="website"><meta property="og:site_name" content="binbuf"><meta property="og:title" content="Gen VST — the Sega Genesis sound chip, native in your DAW"><meta property="og:description" content="Three modes: six-operator YM2612 FM, SN76489 PSG and the 8-bit DAC, with hardware filters and a tagged preset browser. Free and open source."><meta property="og:url" content="https://binbuf.com/apps/gen-vst.html"><meta property="og:image" content="https://binbuf.com/og/gen-vst.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Gen VST interface showing the FM operator grid"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Gen VST — the Sega Genesis sound chip, native in your DAW"><meta name="twitter:description" content="Three modes: six-operator YM2612 FM, SN76489 PSG and the 8-bit DAC, with hardware filters and a tagged preset browser. Free and open source."><meta name="twitter:image" content="https://binbuf.com/og/gen-vst.png"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0a0b0e" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><link rel="manifest" href="../site.webmanifest"><link rel="me" href="https://github.com/binbuf"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1.5' y='1.5' width='13' height='13' rx='4' fill='%23e5484d'/%3E%3Crect x='17.5' y='1.5' width='13' height='13' rx='4' fill='%230b0d17'/%3E%3Crect x='1.5' y='17.5' width='13' height='13' rx='4' fill='%230b0d17' opacity='.55'/%3E%3Crect x='17.5' y='17.5' width='13' height='13' rx='4' fill='%230b0d17' opacity='.25'/%3E%3C/svg%3E"><!-- Theme before first paint: saved choice → OS preference → light --><script>
+(function () {
+  document.documentElement.classList.add('js');
+  try {
+    const saved = localStorage.getItem('binbuf-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+  } catch {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://api.github.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://binbuf.com/apps/gen-vst.html#app","name":"Gen VST","url":"https://binbuf.com/apps/gen-vst.html","isPartOf":{"@id":"https://binbuf.com/#website"},"publisher":{"@id":"https://binbuf.com/#person"},"codeRepository":"https://github.com/binbuf/gen-vst","downloadUrl":"https://github.com/binbuf/gen-vst/releases","applicationCategory":"MultimediaApplication","applicationSubCategory":"Audio plugin","operatingSystem":"Windows, macOS, Linux","softwareVersion":"0.3.4","programmingLanguage":"C++","license":"https://www.gnu.org/licenses/gpl-3.0.html","screenshot":"https://binbuf.com/media/gen-vst-1200.jpg","description":"A free VST3/AU/CLAP plugin that emulates the Sega Genesis YM2612 FM chip, SN76489 PSG and 8-bit DAC with hardware-style filters and a tagged preset browser.","featureList":["YM2612 six-operator FM mode with 16-voice polyphony","SN76489 PSG mode with three tone channels and noise","D mode audio FX chain: decimate, 8-bit, mono, dry/wet","Output Filter and Ladder Effect hardware modeling","~40 original FM patches, 47 community FM patches, 12 PSG presets","VST3, AU, CLAP and standalone builds"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://binbuf.com/"},{"@type":"ListItem","position":2,"name":"Apps","item":"https://binbuf.com/apps/"},{"@type":"ListItem","position":3,"name":"Gen VST"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which plugin formats do I get?","acceptedAnswer":{"@type":"Answer","text":"VST3 and CLAP on Windows, macOS and Linux; AU on macOS; and a standalone app on all three platforms."}},{"@type":"Question","name":"Is Gen VST free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is released under GPL-3.0, and the source is public on GitHub."}},{"@type":"Question","name":"Is D mode a sampler?","acceptedAnswer":{"@type":"Answer","text":"No. D mode is an audio effect: it runs the track’s audio through Genesis-style sample-rate decimation, 8-bit quantization, mono summing and a dry/wet control."}},{"@type":"Question","name":"Do I need the original console or an emulator?","acceptedAnswer":{"@type":"Answer","text":"No. The YM2612 and SN76489 emulation is inside the plugin, and it runs as VST3, AU, CLAP or standalone on your computer."}},{"@type":"Question","name":"Are game soundtracks included?","acceptedAnswer":{"@type":"Answer","text":"No game-derived patches are distributed. The factory banks are original and community patches with generic names. You can import your own banks from .tfi, .dmp, .vgm and similar files in the plugin browser."}},{"@type":"Question","name":"Why does macOS or Windows warn about the installer?","acceptedAnswer":{"@type":"Answer","text":"The installers are not code-signed yet. Windows may show SmartScreen and macOS Gatekeeper will ask once; the README documents the exact steps, including the System Settings path on macOS Tahoe."}}]}]}</script><script type="application/json" id="binbuf-apps">[{"name":"Archive Extractor","slug":"archive-extractor","accent":"app--archive","cat":"Files & Data","tag":"One-click archive extraction for Windows","keywords":"archive extractor zip 7z rar tar gz unzip windows","icon":"<rect x=\"3\" y=\"4\" width=\"18\" height=\"4.5\" rx=\"1.5\"/><path d=\"M4.5 8.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5\"/><path d=\"M10 12.5h4\"/>"},{"name":"Object Viewer","slug":"object-viewer","accent":"app--object","cat":"Files & Data","tag":"Decode JSON, JWT, YAML and more in your browser","keywords":"json jwt xml yaml msgpack cbor protobuf jwt decode viewer browser","icon":"<path d=\"M9.5 4.5C7.8 4.5 7.5 5.6 7.5 7v1.5c0 1.4-.8 2.3-2 2.7v1.6c1.2.4 2 1.3 2 2.7V17c0 1.4.3 2.5 2 2.5\"/><path d=\"M14.5 4.5c1.7 0 2 1.1 2 2.5v1.5c0 1.4.8 2.3 2 2.7v1.6c-1.2.4-2 1.3-2 2.7V17c0 1.4-.3 2.5-2 2.5\"/><circle cx=\"12\" cy=\"12\" r=\"1.25\" fill=\"currentColor\" stroke=\"none\"/>"},{"name":"Preview 3D","slug":"preview-3d","accent":"app--preview3d","cat":"3D & Audio","tag":"Native 3D model viewer for Windows","keywords":"3d model viewer gltf glb obj fbx stl ply 3mf usd usdz step windows preview","icon":"<path d=\"M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z\"/><path d=\"M12 12v9M4.5 7.2 12 12l7.5-4.8\"/>"},{"name":"Gen VST","slug":"gen-vst","accent":"app--genvst","cat":"3D & Audio","tag":"Sega Genesis synth plugin for your DAW","keywords":"sega genesis ym2612 sn76489 fm synth plugin vst3 au clap dac audio music","icon":"<path d=\"M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4\"/>"},{"name":"markframe","slug":"markframe","accent":"app--markframe","cat":"Developer tools","tag":"Prototype mobile UIs from plain text","keywords":"mobile ui prototype dsl ios android material mockup markframe","icon":"<rect x=\"7\" y=\"2.5\" width=\"10\" height=\"19\" rx=\"2.5\"/><path d=\"M10.5 5.5h3\"/><path d=\"M11 18.5h2\"/>"},{"name":"symphony","slug":"symphony","accent":"app--symphony","cat":"Developer tools","tag":"Run an AI coding agent through your roadmap","keywords":"ai agent claude codex cursor opencode gemini roadmap automation git","icon":"<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"15\" rx=\"3\"/><path d=\"m7 10 2.4 2L7 14\"/><path d=\"M12.5 15H17\"/>"},{"name":"QuickCal","slug":"quickcal","accent":"app--quickcal","cat":"Productivity","tag":"Menu-bar calendar and clock for macOS","keywords":"calendar macos menu bar clock agenda eventkit quickcal","icon":"<rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"3\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/><circle cx=\"12\" cy=\"15\" r=\"1.6\"/>"}]</script><link rel="stylesheet" href="/_astro/Arrow.BkZ2X4a1.css"></head><body class="app--genvst"><a class="skip-link" href="#main">Skip to content</a><header class="site-header" id="top" data-header><div class="container site-header__inner"><a class="brand" href="../" aria-label="binbuf — home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="var(--accent)"></rect><rect x="17.5" y="1.5" width="13" height="13" rx="4" fill="currentColor" opacity=".9"></rect><rect x="1.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".55"></rect><rect x="17.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".25"></rect></svg><span>binbuf</span></a><nav class="site-nav" id="site-nav" aria-label="Primary"><div class="nav-item--mega" data-mega><a class="nav-link" href="./" aria-haspopup="true" aria-expanded="false" data-mega-trigger>Apps<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a><div class="mega" role="group" aria-label="Apps by category"><div class="mega__grid"><div><p class="mega__title">Files &amp; Data</p><a class="mega__link app--archive" href="archive-extractor.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4.5" rx="1.5"/><path d="M4.5 8.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5"/><path d="M10 12.5h4"/></svg></span><span><strong>Archive Extractor</strong><span>One-click extraction for Windows</span></span></a><a class="mega__link app--object" href="object-viewer.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4.5C7.8 4.5 7.5 5.6 7.5 7v1.5c0 1.4-.8 2.3-2 2.7v1.6c1.2.4 2 1.3 2 2.7V17c0 1.4.3 2.5 2 2.5"/><path d="M14.5 4.5c1.7 0 2 1.1 2 2.5v1.5c0 1.4.8 2.3 2 2.7v1.6c-1.2.4-2 1.3-2 2.7V17c0 1.4-.3 2.5-2 2.5"/><circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/></svg></span><span><strong>Object Viewer</strong><span>Decode JSON, JWT, YAML and more</span></span></a></div><div><p class="mega__title">3D &amp; Audio</p><a class="mega__link app--preview3d" href="preview-3d.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="M12 12v9M4.5 7.2 12 12l7.5-4.8"/></svg></span><span><strong>Preview 3D</strong><span>Native 3D model viewer</span></span></a><a class="mega__link app--genvst" href="gen-vst.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span><span><strong>Gen VST</strong><span>Sega Genesis synth plugin</span></span></a></div><div><p class="mega__title">Developer tools</p><a class="mega__link app--markframe" href="markframe.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/><path d="M11 18.5h2"/></svg></span><span><strong>markframe</strong><span>Mobile UI from plain text</span></span></a><a class="mega__link app--symphony" href="symphony.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="m7 10 2.4 2L7 14"/><path d="M12.5 15H17"/></svg></span><span><strong>symphony</strong><span>Agent runs, unattended</span></span></a></div><div><p class="mega__title">Productivity</p><a class="mega__link app--quickcal" href="quickcal.html"><span class="app-icon app-icon--sm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><circle cx="12" cy="15" r="1.6"/></svg></span><span><strong>QuickCal</strong><span>Menu-bar calendar for macOS</span></span></a></div></div><div class="mega__foot"><a class="btn btn--link" href="./">All apps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></div></div><a href="../#why">Principles</a><a href="../#faq">FAQ</a><a href="https://github.com/binbuf" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg></a></nav><div class="site-header__actions"><button class="palette-trigger" type="button" data-palette-open aria-haspopup="dialog" aria-controls="palette" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="palette-trigger__label">Search</span><kbd data-kbd aria-hidden="true">Ctrl K</kbd></button><button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Toggle light/dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg></button><button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button></div></div></header><section class="app-hero app-hero--stacked" aria-labelledby="app-title">
+    <div class="container">
+      <div class="app-hero__copy">
+          <div class="app-hero__head">
+            <span class="app-icon app-icon--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span>
+            <div>
+              <h1 id="app-title">Gen VST</h1>
+            </div>
+          </div>
+
+          <p class="app-hero__sub">A Sega Genesis inspired VST3/AU/CLAP audio plugin emulating legendary audio FM synth and PSG chips (YM2612/SN76489).</p>
+
+          <p class="app-hero__cat">3D & Audio · Windows · macOS · Linux</p>
+
+          <div class="app-hero__actions">
+            <a class="btn btn--primary btn--lg" href="https://github.com/binbuf/gen-vst/releases">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+              Download for your DAW
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://github.com/binbuf/gen-vst" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              Source on GitHub
+            </a>
+          </div>
+
+          <div class="app-hero__meta">
+            <span class="chip chip--ver" data-release="binbuf/gen-vst" title="Latest release">v0.3.4</span>
+            <span class="chip">Windows · macOS · Linux</span>
+            <span class="chip">VST3 · AU · CLAP · Standalone</span>
+            <span class="chip">GPL-3.0</span>
+          </div>
+
+          <p class="app-hero__note">Installers are not code-signed yet</p>
+        </div>
+    </div>
+  </section>
+
+  <br />
+
+  <!-- ============================== PRODUCT PREVIEW ============================== -->
+  <section class="app-stage" aria-label="Gen VST preview">
+    <div class="container">
+      <figure class="app-hero__media">
+          <div class="window">
+            <div class="window__bar" aria-hidden="true">
+              <span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span>
+              <span class="window__bar-title">Gen VST — FM mode</span>
+            </div>
+            <picture>
+              <source type="image/avif" srcset="../media/gen-vst-480.avif 480w, ../media/gen-vst-800.avif 800w, ../media/gen-vst-1200.avif 1200w" sizes="(max-width: 1240px) 100vw, 1200px">
+              <source type="image/webp" srcset="../media/gen-vst-480.webp 480w, ../media/gen-vst-800.webp 800w, ../media/gen-vst-1200.webp 1200w" sizes="(max-width: 1240px) 100vw, 1200px">
+              <img src="../media/gen-vst-1200.jpg"
+                   srcset="../media/gen-vst-480.jpg 480w, ../media/gen-vst-800.jpg 800w, ../media/gen-vst-1200.jpg 1200w"
+                   sizes="(max-width: 1240px) 100vw, 1200px"
+                   alt="Gen VST plugin interface showing the six-operator YM2612 FM synth grid on a dark hardware-style canvas" width="1797" height="988" loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">What's inside</p>
+        </div>
+      </header>
+
+      <div class="card-grid card-grid--3">
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></span>
+          <h3>FM mode — YM2612</h3>
+          <p>Six-operator FM with 16-voice polyphony, a hardware-style operator grid and all four FREQ CTRL modes (INT, FLOAT, AUTO RETRIG).</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></span>
+          <h3>SQ mode — SN76489</h3>
+          <p>Three tone channels plus a noise channel, each with its own ADSR, detune and pan.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 13.5h6L11 22l8-11.5h-6z"/></svg></span>
+          <h3>D mode — the 8-bit DAC</h3>
+          <p>An audio FX chain for your own tracks: sample-rate decimation, 8-bit quantization, mono and dry/wet. Not a sampler.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3.5 7.5 12 12l8.5-4.5z"/><path d="m3.5 12.5 8.5 4.5 8.5-4.5"/><path d="m3.5 16.5 8.5 4.5 8.5-4.5"/></svg></span>
+          <h3>Presets that go deep</h3>
+          <p>About 40 original FM patches, 47 community FM patches from Furnace’s tfilib, and 12 hand-tuned PSG presets in a tagged, folder-based browser.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span>
+          <h3>Loads your libraries</h3>
+          <p><code class="code-inline">.tfi</code>, <code class="code-inline">.vgi</code>, <code class="code-inline">.dmp</code>, <code class="code-inline">.y12</code>, <code class="code-inline">.opm</code>, <code class="code-inline">.vgm</code> and <code class="code-inline">.psg</code> patches, with automatic mode switching. Drag folders onto the window.</p>
+        </article>
+
+        <article class="card feature-card reveal">
+          <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 5 6v5.5c0 4 2.9 7.4 7 8.5 4.1-1.1 7-4.5 7-8.5V6z"/><path d="m9 12 2 2 4-4.5"/></svg></span>
+          <h3>Validated like hardware</h3>
+          <p>201 unit tests and <code class="code-inline">pluginval --strictness-level 8</code> on Windows VST3 before release.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="start-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">Getting started</p>
+        </div>
+      </header>
+
+      <div class="steps">
+        <article class="card step reveal">
+          <span class="step__num">1</span>
+          <h3>Install for your platform</h3>
+          <p>Windows: <code class="code-inline">.exe</code> installer. macOS: <code class="code-inline">.pkg</code> (Apple silicon or Intel). Linux: <code class="code-inline">.tar.gz</code> for VST3 + CLAP or an AppImage for standalone.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="step__num">2</span>
+          <h3>Clear the unsigned warning</h3>
+          <p>Windows: SmartScreen → More info → Run anyway. macOS: System Settings → Privacy & Security → Open Anyway. Linux: install <code class="code-inline">libwebkit2gtk-4.1-0</code> if it is missing.</p>
+        </article>
+        <article class="card step reveal">
+          <span class="step__num">3</span>
+          <h3>Rescan and play</h3>
+          <p>Rescan plugins in your DAW, drop Gen VST on a track, and start from a factory patch — or load a bank you already own.</p>
+        </article>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="formats-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">Modes</p>
+        </div>
+      </header>
+
+      <div class="table-wrap reveal">
+        <table class="spec-table">
+          <thead>
+            <tr><th scope="col">Mode</th><th scope="col">Chip and character</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>FM</td><td><strong>YM2612</strong> via ymfm. Six-operator FM, 16-voice polyphony, bass, bells, brass, drums and leads.</td></tr>
+            <tr><td>SQ</td><td><strong>SN76489</strong> via libvgm. Three square-wave tone channels plus noise — the bright, simple voice of the console.</td></tr>
+            <tr><td>D</td><td><strong>Pure DSP</strong>. Decimation, 8-bit quantization and mono for your own audio. An effect, not an instrument.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band--ink" aria-labelledby="hood-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">Under the hood</p>
+          <h2 class="h2" id="hood-title">A modern plugin on real emulation cores.</h2>
+        </div>
+        <p class="lede">Gen VST pairs authoritative chip emulation with a WebView UI, so the interface can be as detailed as the DSP without slowing the audio thread.</p>
+      </header>
+
+      <div class="feature-row">
+        <div class="feature-row__copy reveal">
+          <h3 class="h3">Emulation first, interface second.</h3>
+          <p>The audio path is a single C++20 / JUCE 8 plugin: ymfm for the YM2612, libvgm’s SN76489 core, and a pure-DSP chain for D mode and the shared output bus. The UI is HTML/CSS/JS bundled by Vite and rendered through JUCE’s WebView component, with a two-way bridge to the parameter tree.</p>
+        </div>
+        <ul class="feature-list reveal">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            <span><strong>ymfm (BSD-3)</strong> — and ValleyBell/libvgm (LGPL/BSD) for the chip cores</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            <span><strong>JUCE 8 WebView UI</strong> — on WebView2, WKWebView and WebKitGTK</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            <span><strong>16-voice pool</strong> — with LRU voice stealing and Poly, Mono and Unison modes</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            <span><strong>Folder-rooted patch browser</strong> — with lazy scanning and a background index</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 12.5 5 5 10-11"/></svg>
+            <span><strong>Design docs and ADRs</strong> — live in the repository alongside the code</span>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <div>
+          <p class="eyebrow">Gen VST FAQ</p>
+          <h2 class="h2" id="faq-title">Before you install.</h2>
+        </div>
+      </header>
+
+      <div class="faq reveal">
+        <details class="faq__item">
+          <summary>
+            Which plugin formats do I get?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>VST3 and CLAP on Windows, macOS and Linux; AU on macOS; and a standalone app on all three platforms.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Is Gen VST free?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>Yes. It is released under GPL-3.0, and the source is public on GitHub.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Is D mode a sampler?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>No. D mode is an audio effect: it runs the track’s audio through Genesis-style sample-rate decimation, 8-bit quantization, mono summing and a dry/wet control.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Do I need the original console or an emulator?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>No. The YM2612 and SN76489 emulation is inside the plugin, and it runs as VST3, AU, CLAP or standalone on your computer.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Are game soundtracks included?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>No game-derived patches are distributed. The factory banks are original and community patches with generic names. You can import your own banks from .tfi, .dmp, .vgm and similar files in the plugin browser.</p>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Why does macOS or Windows warn about the installer?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <p>The installers are not code-signed yet. Windows may show SmartScreen and macOS Gatekeeper will ask once; the README documents the exact steps, including the System Settings path on macOS Tahoe.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" aria-labelledby="more-title"><div class="container"><header class="section-head reveal"><div><p class="eyebrow">Keep browsing</p><h2 class="h2" id="more-title">More from the collection.</h2></div><a class="cat-link" href="./">All apps →</a></header><div class="related"><article class="card card--hover app-card app--preview3d reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="M12 12v9M4.5 7.2 12 12l7.5-4.8"/></svg></span><span class="chip">Windows</span></div><h3><a class="app-card__link" href="preview-3d.html">Preview 3D</a></h3><p class="app-card__tagline">Inspect 3D models natively — glTF, OBJ, FBX, STL and more.</p><div class="app-card__links"><a class="btn btn--link" href="preview-3d.html">Learn more <span class="visually-hidden">about Preview 3D</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article><article class="card card--hover app-card app--archive reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4.5" rx="1.5"/><path d="M4.5 8.5V18a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.5"/><path d="M10 12.5h4"/></svg></span><span class="chip">Windows</span></div><h3><a class="app-card__link" href="archive-extractor.html">Archive Extractor</a></h3><p class="app-card__tagline">Double-click any archive and it is already extracted.</p><div class="app-card__links"><a class="btn btn--link" href="archive-extractor.html">Learn more <span class="visually-hidden">about Archive Extractor</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article><article class="card card--hover app-card app--markframe reveal"><div class="app-card__top"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 5.5h3"/><path d="M11 18.5h2"/></svg></span><span class="chip">Web</span></div><h3><a class="app-card__link" href="markframe.html">markframe</a></h3><p class="app-card__tagline">Prototype mobile UIs from plain text, live in the browser.</p><div class="app-card__links"><a class="btn btn--link" href="markframe.html">Learn more <span class="visually-hidden">about markframe</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></div></article></div></div></section>
+
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="../" aria-label="binbuf — home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="4" fill="var(--accent)"></rect><rect x="17.5" y="1.5" width="13" height="13" rx="4" fill="currentColor" opacity=".9"></rect><rect x="1.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".55"></rect><rect x="17.5" y="17.5" width="13" height="13" rx="4" fill="currentColor" opacity=".25"></rect></svg><span>binbuf</span></a><p>Free and open-source software for Windows, macOS, Linux, Android, iOS, web, and more. Made in California.</p><div class="footer-actions"><a class="icon-btn" href="https://github.com/binbuf" target="_blank" rel="noopener" aria-label="binbuf on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.6.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.2.67.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path></svg></a></div></div><div><p class="footer-title">Files &amp; Data</p><ul class="footer-links"><li><a href="archive-extractor.html">Archive Extractor</a></li><li><a href="object-viewer.html">Object Viewer</a></li></ul></div><div><p class="footer-title">3D &amp; Audio</p><ul class="footer-links"><li><a href="preview-3d.html">Preview 3D</a></li><li><a href="gen-vst.html">Gen VST</a></li></ul></div><div><p class="footer-title">Developer tools</p><ul class="footer-links"><li><a href="markframe.html">markframe</a></li><li><a href="symphony.html">symphony</a></li></ul></div><div><p class="footer-title">Productivity</p><ul class="footer-links"><li><a href="quickcal.html">QuickCal</a></li></ul></div></div><div class="footer-bottom"><span>&copy; <span id="year">2026</span> binbuf</span><span><a href="../">Home</a> ·<a href="./">All apps</a> ·<a href="../#faq">FAQ</a> ·<a href="https://github.com/binbuf" target="_blank" rel="noopener">GitHub</a></span></div></div></footer><dialog class="palette" id="palette" aria-label="Search apps and pages"><div class="palette__search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" placeholder="Search apps and pages…" aria-label="Search" data-palette-input autocomplete="off" spellcheck="false"><kbd class="palette__esc">Esc</kbd></div><ul class="palette__list" data-palette-list></ul><p class="palette__empty" hidden>No matches. Try “3D”, “archive”, “synth” or “calendar”.</p><div class="palette__foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span></div></dialog><button class="icon-btn to-top" type="button" data-to-top aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></button><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.BTEjkhXq.js"></script></body></html>
